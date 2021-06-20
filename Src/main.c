@@ -65,6 +65,7 @@ void SystemClock_Config(void);
 AT4NB_MSG msgs[7];
 extern Uart2DmaRcvData uart2DmaRcvData;
 extern MsgIndex currentIndex;
+extern uint8_t retryTimesBack[];
 /* USER CODE END 0 */
 
 /**
@@ -116,8 +117,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		
 
-		while (uart2DmaRcvData.rcvFlag == 0) //如果没有接受到NB的数据
+
+		while (uart2DmaRcvData.rcvFlag == 0) //如果没有接受到NB的数据, LCD屏实时显示当前的状态
 		{
 			static uint8_t firstTime = 1;
 			switch (currentIndex)
@@ -125,22 +128,36 @@ int main(void)
 				case REBOOT:
 				if (firstTime)
 				{
-					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "booting...");
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "NB booting...");
 					firstTime = 0;
 				}
-				
 				break;
 				
 				case GET_SIGNAL_STRENGTH:
-					
 					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "getting signal");
 				Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "strength...");
+				break;
+				
+				case GET_IP_ADDR:
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "getting IP");
+						Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "address...");
+				break;
+				
+				case CREATE_TCP_SOCKET:
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "creating ");
+						Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "socket...");
+				break;
+				
+				case CONNECT_SOCKET:
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "connecting ");
+						Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "socket...");
 				break;
 			}
 		}
 		
 		 //已获取NB的数据
 		printf("rcved: %s\r\n", uart2DmaRcvData.rcvBuff);
+		
 		
 		if (strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack) != NULL)  //初步校验获取到的数据
 		{
@@ -153,56 +170,89 @@ int main(void)
 				{
 					sscanf(p, "+CSQ:%d", &rssi);
 					
-					if (rssi > 0 && rssi < 99)
+					if (rssi > 0 && rssi < 99)  //校验成功
 					{
 						char buf[5];
 						sprintf(buf, "%d", rssi);
+						msgs[currentIndex].retryTimes = retryTimesBack[currentIndex];
 						currentIndex++;
 						Lcd_Clear(WHITE);
 						Gui_DrawFont_GBK16(0, 10, BLUE, WHITE, "signal strength:");
 						Gui_DrawFont_GBK16(50, 26, GREEN, WHITE, buf);
-						Gui_DrawFont_GBK16(0, 50, BLUE, WHITE, "getting address");
-						Gui_DrawFont_GBK16(0, 66, BLUE, WHITE, "...");
-						HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
+						HAL_Delay(1000);
+						Lcd_Clear(WHITE);
+						
 					}
-					else 
-					{
-						if (msgs[currentIndex].retryTimes > 0) 
-						{
-							msgs[currentIndex].retryTimes--;
-							HAL_Delay(2000);
-							HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
-						}
-						else 
-						{
-							Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "no signnal, rebooting...");
-							msgs[currentIndex].retryTimes = 5;
-							currentIndex = REBOOT;
-							HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
-						}
-					}
+					else goto tryAgain;
 				}
+			}
+			else if (currentIndex == GET_IP_ADDR)  //进一步校验地址是否有效
+			{
+				
+				uint8_t *p;
+				
+				p = strstr(uart2DmaRcvData.rcvBuff, "+CGPADDR:0,");  //找到首地址
+				if (p)  //0后有逗号说明已获取地址
+				{
+					uint8_t a1, a2, a3, a4;
+					char buf[15];
+					
+					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+					
+						sprintf(buf, "%d.%d.%d.%d", a1, a2, a3, a4);
+						
+						Lcd_Clear(WHITE);
+						Gui_DrawFont_GBK16(0, 10, BLUE, WHITE, "IP address:");
+						Gui_DrawFont_GBK16(10, 26, GREEN, WHITE, buf);
+						HAL_Delay(1000);
+					Lcd_Clear(WHITE);
+						
+					msgs[currentIndex].retryTimes = retryTimesBack[currentIndex];
+					currentIndex++;
+		
+				}
+				else  goto tryAgain;
+			}
+			else if (currentIndex == CONNECT_SOCKET)
+			{
+				
+				Lcd_Clear(WHITE);
+				Gui_DrawFont_GBK16(0, 10, BLUE, WHITE, "socket connected");
+				Gui_DrawFont_GBK16(0, 26, BLUE, WHITE, "sensoring...");
+				sensoring();
 			}
 			else  //校验成功
 			{
-				msgs[currentIndex].retryTimes = 5;  //还原当前消息重试次数
+				msgs[currentIndex].retryTimes = retryTimesBack[currentIndex];  //还原当前消息重试次数
 				currentIndex++;
-				HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
+				HAL_Delay(1000);
+				Lcd_Clear(WHITE);
 			}
-			
 		}
-		else  //初步校验数据失败
+		else  //校验数据失败
 		{
-			
-			
+			tryAgain:
+			if (msgs[currentIndex].retryTimes > 0)  
+			{
+				msgs[currentIndex].retryTimes--;
+				if (currentIndex != REBOOT)  
+				{
+					char buf[3];
+					sprintf(buf, "%d", msgs[currentIndex].retryTimes);
+					Gui_DrawFont_GBK16(50, 60, RED, WHITE, buf);
+				}
+			}
+			else   //如果重试次数到，重启
+			{
+				msgs[currentIndex].retryTimes = retryTimesBack[currentIndex];
+				currentIndex = REBOOT;
+			}
 		}
 		uart2DmaRcvData.rcvFlag = 0;
-	
-//		{
-
-//			uart2DmaRcvData.rcvFlag = 0;
-//		}
+		HAL_Delay(1000);
+		HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);
 		
+
 		
 		
 		

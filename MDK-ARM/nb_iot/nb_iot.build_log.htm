@@ -22,12 +22,92 @@ Dialog DLL:      TARMCM1.DLL V1.14.2.0
  
 <h2>Project:</h2>
 D:\PRJS\NB-IoT\software\nb_iot\MDK-ARM\nb_iot.uvprojx
-Project File Date:  06/14/2021
+Project File Date:  06/20/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\MDK-ARM\ARM\ARMCC\Bin'
 Build target 'nb_iot'
-"nb_iot\nb_iot.axf" - 0 Error(s), 0 Warning(s).
+compiling at4nb.c...
+../Inc/at4nb.h(28): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Src\at4nb.c(59): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		if (strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack) != NULL)  //初步校验获取到的数据
+..\Src\at4nb.c(59): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		if (strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack) != NULL)  //初步校验获取到的数据
+..\Src\at4nb.c(65): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CSQ:");
+..\Src\at4nb.c(65): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CSQ:");
+..\Src\at4nb.c(68): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+  					sscanf(p, "+CSQ:%d", &rssi);
+..\Src\at4nb.c(68): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CSQ:%d", &rssi);
+..\Src\at4nb.c(77): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						Gui_DrawFont_GBK16(50, 26, GREEN, WHITE, buf);
+..\Src\at4nb.c(80): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  						HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
+..\Src\at4nb.c(93): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CGPADDR:0,");  //找到首地址
+..\Src\at4nb.c(93): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CGPADDR:0,");  //找到首地址
+..\Src\at4nb.c(99): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+  					sscanf(p, "+CGPADDR:0,%c.%c.%c.%c", &a1, &a2, &a3, &a4);
+..\Src\at4nb.c(105): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						Gui_DrawFont_GBK16(0, 26, GREEN, WHITE, buf);
+..\Src\at4nb.c(109): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  					HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);   //发送下一条指令
+..\Src\at4nb.c(117): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);  
+..\Src\at4nb.c(132): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  					Gui_DrawFont_GBK16(40, 40, BLUE, WHITE, buf);
+..\Src\at4nb.c(134): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  					HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);
+..\Src\at4nb.c(151): warning:  #1-D: last line of file ends without a newline
+  }
+..\Src\at4nb.c: 18 warnings, 0 errors
+compiling main.c...
+../Inc/at4nb.h(28): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/main.c(162): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		if (strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack) != NULL)  //初步校验获取到的数据
+../Src/main.c(162): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		if (strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack) != NULL)  //初步校验获取到的数据
+../Src/main.c(168): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CSQ:");
+../Src/main.c(168): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CSQ:");
+../Src/main.c(171): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+  					sscanf(p, "+CSQ:%d", &rssi);
+../Src/main.c(171): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CSQ:%d", &rssi);
+../Src/main.c(181): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						Gui_DrawFont_GBK16(50, 26, GREEN, WHITE, buf);
+../Src/main.c(194): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CGPADDR:0,");  //找到首地址
+../Src/main.c(194): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+  				p = strstr(uart2DmaRcvData.rcvBuff, "+CGPADDR:0,");  //找到首地址
+../Src/main.c(200): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+  					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+../Src/main.c(200): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+../Src/main.c(200): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+../Src/main.c(200): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+../Src/main.c(200): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  					sscanf(p, "+CGPADDR:0,%d.%d.%d.%d", &a1, &a2, &a3, &a4);
+../Src/main.c(206): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						Gui_DrawFont_GBK16(10, 26, GREEN, WHITE, buf);
+../Src/main.c(222): warning:  #223-D: function "sensoring" declared implicitly
+  				sensoring();
+../Src/main.c(242): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  					Gui_DrawFont_GBK16(50, 60, RED, WHITE, buf);
+../Src/main.c(253): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);
+../Src/main.c: 19 warnings, 0 errors
+linking...
+Program Size: Code=13222 RO-data=4406 RW-data=32 ZI-data=1864  
+"nb_iot\nb_iot.axf" - 0 Error(s), 37 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +130,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

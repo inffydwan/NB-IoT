@@ -11,6 +11,7 @@
 "nb_iot\usart.o"
 "nb_iot\stm32f0xx_it.o"
 "nb_iot\stm32f0xx_hal_msp.o"
+"nb_iot\sensor.o"
 "nb_iot\stm32f0xx_hal_adc.o"
 "nb_iot\stm32f0xx_hal_adc_ex.o"
 "nb_iot\stm32f0xx_hal_rcc.o"

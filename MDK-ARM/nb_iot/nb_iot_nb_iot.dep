@@ -35,8 +35,8 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h)(0x60A859D4)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h)(0x60A859D4)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x60A859D4)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x60A859D4)
-F (..\Src\at4nb.c)(0x60CC1A18)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\at4nb.o --omf_browse nb_iot\at4nb.crf --depend nb_iot\at4nb.d)
-I (../Inc/at4nb.h)(0x60C73FE3)
+F (..\Src\at4nb.c)(0x60CF546F)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\at4nb.o --omf_browse nb_iot\at4nb.crf --depend nb_iot\at4nb.d)
+I (../Inc/at4nb.h)(0x60CF4E4B)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x60A859D4)
 I (../Inc/stm32f0xx_hal_conf.h)(0x60C706D6)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x60A859D4)
@@ -116,7 +116,7 @@ I (../Inc/lcd.h)(0x60AF4445)
 I (../Inc/font_lcd.h)(0x58D0D2EF)
 I (D:\Keil_v5\MDK-ARM\ARM\ARMCC\include\string.h)(0x5EC77604)
 I (../Inc/spi.h)(0x60C706D4)
-F (../Src/main.c)(0x60CC1A17)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\main.o --omf_browse nb_iot\main.crf --depend nb_iot\main.d)
+F (../Src/main.c)(0x60CF546F)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\main.o --omf_browse nb_iot\main.crf --depend nb_iot\main.d)
 I (../Inc/main.h)(0x60C706D6)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x60A859D4)
 I (../Inc/stm32f0xx_hal_conf.h)(0x60C706D6)
@@ -157,7 +157,7 @@ I (../Inc/dma.h)(0x60C706D4)
 I (../Inc/spi.h)(0x60C706D4)
 I (../Inc/usart.h)(0x60C706D5)
 I (../Inc/gpio.h)(0x60C706D1)
-I (../Inc/at4nb.h)(0x60C73FE3)
+I (../Inc/at4nb.h)(0x60CF4E4B)
 I (../Inc/lcd.h)(0x60AF4445)
 I (D:\Keil_v5\MDK-ARM\ARM\ARMCC\include\string.h)(0x5EC77604)
 F (../Src/gpio.c)(0x60C706D1)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\gpio.o --omf_browse nb_iot\gpio.crf --depend nb_iot\gpio.d)
@@ -419,6 +419,41 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h)(0x60A859D4)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x60A859D4)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x60A859D4)
 I (D:\Keil_v5\MDK-ARM\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
+F (..\Src\sensor.c)(0x60CF4F32)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\sensor.o --omf_browse nb_iot\sensor.crf --depend nb_iot\sensor.d)
+I (../Inc/sensor.h)(0x60CF4E4B)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x60A859D4)
+I (../Inc/stm32f0xx_hal_conf.h)(0x60C706D6)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x60A859D4)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x60A859D4)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h)(0x60A859D4)
+I (../Drivers/CMSIS/Include/core_cm0.h)(0x60A859B6)
+I (D:\Keil_v5\MDK-ARM\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x60A859B6)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x60A859B6)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x60A859B6)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x60A859D4)
+I (D:\Keil_v5\MDK-ARM\ARM\ARMCC\include\stddef.h)(0x5EC775FC)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_exti.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x60A859D4)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x60A859D4)
 F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c)(0x60A859D4)(-c --cpu Cortex-M0 -D__MICROLIB -g -O1 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_nb_iot-ID:\Users\inffydwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-ID:\Users\inffydwan\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F051x8 -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F051x8-o nb_iot\stm32f0xx_hal_adc.o --omf_browse nb_iot\stm32f0xx_hal_adc.crf --depend nb_iot\stm32f0xx_hal_adc.d)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x60A859D4)
 I (../Inc/stm32f0xx_hal_conf.h)(0x60C706D6)
