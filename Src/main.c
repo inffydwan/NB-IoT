@@ -109,7 +109,7 @@ int main(void)
 	printf("system init done\r\n");
 	
   /* USER CODE END 2 */
-	
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -152,6 +152,11 @@ int main(void)
 					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "connecting ");
 						Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "socket...");
 				break;
+				
+				case SEND_MSG:
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "sensoring");
+				break;
+				
 			}
 		}
 		
@@ -213,12 +218,9 @@ int main(void)
 				}
 				else  goto tryAgain;
 			}
-			else if (currentIndex == CONNECT_SOCKET)
+			else if (currentIndex == SEND_MSG)
 			{
 				
-				Lcd_Clear(WHITE);
-				Gui_DrawFont_GBK16(0, 10, BLUE, WHITE, "socket connected");
-				Gui_DrawFont_GBK16(0, 26, BLUE, WHITE, "sensoring...");
 				sensoring();
 			}
 			else  //校验成功
