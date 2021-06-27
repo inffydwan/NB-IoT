@@ -66,6 +66,7 @@ AT4NB_MSG msgs[7];
 extern Uart2DmaRcvData uart2DmaRcvData;
 extern MsgIndex currentIndex;
 extern uint8_t retryTimesBack[];
+int debug;
 /* USER CODE END 0 */
 
 /**
@@ -154,9 +155,12 @@ int main(void)
 				break;
 				
 				case SEND_MSG:
-					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "sensoring");
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "sensoring...");
 				break;
 				
+				case GET_MSG:
+					Gui_DrawFont_GBK16(10, 10, BLUE, WHITE, "getting");
+				Gui_DrawFont_GBK16(10, 26, BLUE, WHITE, "message...");
 			}
 		}
 		
@@ -220,8 +224,30 @@ int main(void)
 			}
 			else if (currentIndex == SEND_MSG)
 			{
-				
+			
 				sensoring();
+			}
+			else if (currentIndex == GET_MSG)
+			{
+				uint8_t *p;
+				
+				p = strstr(uart2DmaRcvData.rcvBuff, msgs[currentIndex].feedBack);  //找到首地址
+				if (p)  
+				{
+					int relayCnd;
+					sscanf(p, "1,64.69.43.237,10244,2,BB%d", &relayCnd);
+					if (relayCnd == 1)
+					{
+						HAL_GPIO_WritePin(GPIOB, relay_Pin, GPIO_PIN_RESET);
+					}
+					else  
+					{
+						HAL_GPIO_WritePin(GPIOB, relay_Pin, GPIO_PIN_SET);
+					}
+				}
+				
+				currentIndex--;
+				Lcd_Clear(WHITE);
 			}
 			else  //校验成功
 			{
@@ -251,7 +277,6 @@ int main(void)
 			}
 		}
 		uart2DmaRcvData.rcvFlag = 0;
-		HAL_Delay(1000);
 		HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);
 		
 

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [nb_iot\nb_iot.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image nb_iot\nb_iot.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jun 22 21:00:21 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 27 20:30:27 2021
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -237,6 +237,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensoring
 </UL>
 
 <P><STRONG><a name="[49]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
@@ -464,6 +465,7 @@ Global Symbols
 
 <P><STRONG><a name="[7e]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f0xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_WriteIndex
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_WriteData
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_Init
@@ -739,6 +741,7 @@ Global Symbols
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_WriteData_16Bit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensoring
 </UL>
 
 <P><STRONG><a name="[81]"></a>Lcd_Init</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, lcd.o(i.Lcd_Init))
@@ -803,7 +806,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[85]"></a>MX_GPIO_Init</STRONG> (Thumb, 170 bytes, Stack size 40 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[85]"></a>MX_GPIO_Init</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -976,7 +979,7 @@ Global Symbols
 <P><STRONG><a name="[2e]"></a>fputc</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usart.o(i.fputc))
 <BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0printf$3)
 </UL>
-<P><STRONG><a name="[23]"></a>main</STRONG> (Thumb, 630 bytes, Stack size 40 bytes, main.o(i.main))
+<P><STRONG><a name="[23]"></a>main</STRONG> (Thumb, 700 bytes, Stack size 40 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = main &rArr; Gui_DrawFont_GBK16 &rArr; Gui_DrawPoint &rArr; Lcd_SetRegion &rArr; Lcd_WriteIndex &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
@@ -990,6 +993,7 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensoring
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_Init
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_Clear
@@ -1009,8 +1013,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[98]"></a>sensoring</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, sensor.o(i.sensoring))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = sensoring
+<P><STRONG><a name="[98]"></a>sensoring</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, sensor.o(i.sensoring))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = sensoring &rArr; Lcd_Clear &rArr; Lcd_SetRegion &rArr; Lcd_WriteIndex &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_Clear
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

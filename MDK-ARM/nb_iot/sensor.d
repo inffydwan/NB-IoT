@@ -35,3 +35,8 @@ nb_iot\sensor.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h
 nb_iot\sensor.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h
 nb_iot\sensor.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
 nb_iot\sensor.o: ../Inc/at4nb.h
+nb_iot\sensor.o: ../Inc/usart.h
+nb_iot\sensor.o: ../Inc/main.h
+nb_iot\sensor.o: D:\Keil_v5\MDK-ARM\ARM\ARMCC\Bin\..\include\stdio.h
+nb_iot\sensor.o: D:\Keil_v5\MDK-ARM\ARM\ARMCC\Bin\..\include\string.h
+nb_iot\sensor.o: ../Inc/lcd.h

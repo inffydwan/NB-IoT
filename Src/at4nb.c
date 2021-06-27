@@ -36,13 +36,13 @@ void msgInit(AT4NB_MSG *msgs)
 	msgs[4].retryTimes = 5;
 	retryTimesBack[4] = 5;
 	
-	msgs[5].cmd = "AT+NSOSD=1,3,AABBCC\r\n";
+	msgs[5].cmd = "AT+NNMI=1\r\n";
 	msgs[5].feedBack = "OK";
 	msgs[5].retryTimes = 5;
 	retryTimesBack[5] = 5;
 	
-	msgs[6].cmd = "AT+NSOCL=1\r\n";
-	msgs[6].feedBack = "OK";
+	msgs[6].cmd = "AT+NSORF=1,5\r\n";
+	msgs[6].feedBack = "1,64.69.43.237,10244,2,BB";
 	msgs[6].retryTimes = 5;
 	retryTimesBack[6] = 5;
 	

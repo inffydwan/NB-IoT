@@ -18,7 +18,7 @@ typedef enum {
 	CREATE_TCP_SOCKET,
 	CONNECT_SOCKET,
 	SEND_MSG,
-	CLOSE_SOCKET
+	GET_MSG,
 } MsgIndex;
 
 
