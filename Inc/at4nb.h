@@ -5,9 +5,9 @@
 #include "stm32f0xx_hal.h"
 
 typedef struct {
-	uint8_t* cmd;
+	uint8_t cmd[50];
+	uint8_t feedBack[30];
 	uint8_t retryTimes;
-	uint8_t* feedBack;
 } AT4NB_MSG;
 
 

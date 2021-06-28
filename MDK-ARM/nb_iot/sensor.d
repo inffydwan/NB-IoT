@@ -40,3 +40,4 @@ nb_iot\sensor.o: ../Inc/main.h
 nb_iot\sensor.o: D:\Keil_v5\MDK-ARM\ARM\ARMCC\Bin\..\include\stdio.h
 nb_iot\sensor.o: D:\Keil_v5\MDK-ARM\ARM\ARMCC\Bin\..\include\string.h
 nb_iot\sensor.o: ../Inc/lcd.h
+nb_iot\sensor.o: ../Inc/adc.h

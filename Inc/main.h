@@ -58,6 +58,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define gasDetec_Pin GPIO_PIN_4
+#define gasDetec_GPIO_Port GPIOA
 #define relay_Pin GPIO_PIN_7
 #define relay_GPIO_Port GPIOB
 #define ulfrared_Pin GPIO_PIN_8

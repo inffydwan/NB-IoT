@@ -62,7 +62,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-AT4NB_MSG msgs[7];
+extern AT4NB_MSG msgs[7];
 extern Uart2DmaRcvData uart2DmaRcvData;
 extern MsgIndex currentIndex;
 extern uint8_t retryTimesBack[];
@@ -103,7 +103,6 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	msgInit(msgs);
 	Lcd_Init();
 	HAL_Delay(500);
 	Lcd_Clear(WHITE);
@@ -247,6 +246,7 @@ int main(void)
 				}
 				
 				currentIndex--;
+				
 				Lcd_Clear(WHITE);
 			}
 			else  //校验成功
@@ -276,11 +276,11 @@ int main(void)
 				currentIndex = REBOOT;
 			}
 		}
+		
+		
+		
 		uart2DmaRcvData.rcvFlag = 0;
 		HAL_UART_Transmit(&huart2, msgs[currentIndex].cmd, strlen(msgs[currentIndex].cmd), 100);
-		
-
-		
 		
 		
 		
