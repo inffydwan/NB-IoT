@@ -266,7 +266,7 @@ int main(void)
 				if (currentIndex != REBOOT)  
 				{
 					char buf[3];
-					sprintf(buf, "%d", msgs[currentIndex].retryTimes);
+					sprintf(buf, "%02d", msgs[currentIndex].retryTimes);
 					Gui_DrawFont_GBK16(50, 60, RED, WHITE, buf);
 				}
 			}

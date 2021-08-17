@@ -53,18 +53,25 @@ void sensoring()
 			}
 		}
 		#elif  FIRE
-				if (ulfraredTriggered)
+			if (HAL_GetTick() - AD_Time > ADC_INTEVAL)
 		{
-			ulfraredTriggered = 0;
-			msgs[currentIndex].cmd = "AT+NSOSD=1,3,AA0101\r\n";
-			return;
-		}
-		else if (ulfraedUntriggered)
-		{
-			ulfraedUntriggered = 0;
-			msgs[currentIndex].cmd = "AT+NSOSD=1,3,AA0100\r\n";
-			return;
-			
+			HAL_ADC_Start(&hadc);
+			HAL_ADC_PollForConversion(&hadc, 100);
+			if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc), HAL_ADC_STATE_REG_EOC))
+			{
+				uint16_t adcValue;
+				adcValue = HAL_ADC_GetValue(&hadc);
+				AD_Time = HAL_GetTick();
+
+				debug1 = adcValue;
+				
+				char str[80];
+				sprintf(str, "AT+NSOSD=1,4,AA02%02X%02X\r\n", (uint8_t)(adcValue >> 8), (uint8_t)adcValue);
+				memcpy(msgs[currentIndex].cmd, str, sizeof str);
+				printf(msgs[currentIndex].cmd);
+				
+				return;
+			}
 		}
 		#elif  RELAY
 		 if (uart2DmaRcvData.rcvFlag)  //接受到服务端的指令
